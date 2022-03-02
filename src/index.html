@@ -13,11 +13,12 @@
   />
     <title>TO DO LIST</title>
   </head>
-  <body><div class="container">
-        <div class="hcontainer">
+  <body><div class="mainContainer">
+        <div class="headerContainer">
           <h3 class="header">Today's To Do</h3>
           <i class="fas fa-sync-alt"></i>
         </div>
+        <hr>
         <form>
           <div class="inputContainer">
             <input
@@ -27,12 +28,14 @@
             />
             <button type="submit" aria-label="Add new task" class="addTaskBtn">
               <i class="fa fa-plus-circle"></i>
-            </button>           
+            </button>
+              
           </div>
+          <hr>
                   </form>
         <ul class="tDList"></ul>
 
-        <button class="clear" type="button">Clear To Do list completed</button>
+        <button class="clearBTN" type="button">Clear all completed</button>
       </div>
     
   </body>
