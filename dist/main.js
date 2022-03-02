@@ -350,7 +350,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "#test {\r\n  color: red;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  padding: 0;\r\n  margin: 0;\r\n  box-sizing: border-box;\r\n  list-style: none;\r\n}\r\n\r\nbody {\r\n  background-color: #faebd7;\r\n}\r\n\r\n.mainContainer {\r\n  display: flex;\r\n  flex-direction: column;\r\n  margin: 30%;\r\n  border: 1px solid grey;\r\n  background-color: whitesmoke;\r\n  box-shadow: 2px 5px grey;\r\n}\r\n\r\n.headerContainer {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n  gap: 20px;\r\n  padding: 20px;\r\n}\r\n\r\n.inputContainer {\r\n  display: flex;\r\n}\r\n\r\n.header {\r\n  font-size: 18px;\r\n}\r\n\r\n.fa-sync-alt {\r\n  font-size: small;\r\n  align-items: baseline;\r\n}\r\n\r\n.fa-plus-circle {\r\n  font-size: 22px;\r\n}\r\n\r\n.inputTask {\r\n  padding: 15px 10px 10px 10px;\r\n  border: none;\r\n  width: 100%;\r\n}\r\n\r\n.addTaskBtn {\r\n  padding-right: 11px;\r\n  border: none;\r\n  background-color: white;\r\n}\r\n\r\n.clearBTN {\r\n  padding: 20px 0;\r\n  border: none;\r\n}\r\n\r\n.displayTdl {\r\n  display: flex;\r\n  justify-content: space-between;\r\n}\r\n\r\n.tdldisplayContainer {\r\n  display: flex;\r\n  gap: 10px;\r\n  padding: 17px 9px;\r\n}\r\n\r\n#delete {\r\n  padding: 20px;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -472,22 +472,6 @@ module.exports = function (cssWithMappingToString) {
   return list;
 };
 
-/***/ }),
-/* 11 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-const component = () => {
-  const element = document.getElementById('test');
-  element.innerHTML = 'Welcome';
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component);
-
-
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -562,11 +546,39 @@ var __webpack_exports__ = {};
 (() => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _modules_component_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
 
 
+const tDList = document.querySelector('.tDList');
 
-window.onload = (0,_modules_component_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+const arrTdlist = [
+  {
+    id: 1,
+    tdlist: 'Repair my laptop',
+    complete: false,
+  },
+  {
+    id: 1,
+    tdlist: 'Clean the yard',
+    complete: false,
+  },
+  {
+    id: 1,
+    tdlist: 'Study javScript',
+    complete: false,
+  },
+];
+
+for (let i = 0; i < arrTdlist.length; i += 1) {
+  tDList.innerHTML = `
+    ${tDList.innerHTML}
+    <li class="displayTdl">
+    <div class="tdldisplayContainer"><input type='checkbox' class='checkbox'>
+    <p class='tdText' id=${arrTdlist[i].id}> ${arrTdlist[i].tdlist}</p>
+    </div>
+    <span id='delete'><i class='fa-solid fa-ellipsis-vertical'></i></span>
+    </li>
+    `;
+}
 
 })();
 
