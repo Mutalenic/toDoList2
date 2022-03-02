@@ -4,11 +4,36 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Boilerplate</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+    <title>TO DO LIST</title>
   </head>
-  <body>
-    <div>
-      <h1 id="test">Hello World</h1>
-    </div>
+  <body><div class="container">
+        <div class="hcontainer">
+          <h3 class="header">Today's To Do</h3>
+          <i class="fas fa-sync-alt"></i>
+        </div>
+        <form>
+          <div class="inputContainer">
+            <input
+              class="inputTask"
+              type="text"
+              placeholder="Add to your list..."
+            />
+            <button type="submit" aria-label="Add new task" class="addTaskBtn">
+              <i class="fa fa-plus-circle"></i>
+            </button>           
+          </div>
+                  </form>
+        <ul class="tDList"></ul>
+
+        <button class="clear" type="button">Clear To Do list completed</button>
+      </div>
+    
   </body>
 </html>
