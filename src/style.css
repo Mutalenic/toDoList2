@@ -27,7 +27,7 @@ body {
 }
 
 .inputContainer {
-  display: flex;  
+  display: flex;
 }
 
 .header {
@@ -35,13 +35,13 @@ body {
 }
 
 .fa-sync-alt {
-font-size: small;
-align-items: baseline;
+  font-size: small;
+  align-items: baseline;
 }
 
 .fa-plus-circle {
-      font-size: 22px;
-      }
+  font-size: 22px;
+}
 
 .inputTask {
   padding: 15px 10px 10px 10px;
@@ -50,34 +50,28 @@ align-items: baseline;
 }
 
 .addTaskBtn {
-      padding-right: 11px;
-      border: none;
-      background-color: white;
+  padding-right: 11px;
+  border: none;
+  background-color: white;
 }
 
 .clearBTN {
   padding: 20px 0;
   border: none;
-  }
+}
 
-  .displayTdl {
-    display: flex;
-    justify-content: space-between;
-  }
+.displayTdl {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid grey
+}
 
-  .tdldisplayContainer {
-    display: flex;
-    gap: 10px;
-    padding: 17px 9px;
-  }
+.tdldisplayContainer {
+  display: flex;
+  gap: 10px;
+  padding: 17px 9px;
+}
 
-  #delete {
-    padding: 20px;
-  }
-
-
-
-
-
-
-
+#delete {
+  padding: 20px;
+}
