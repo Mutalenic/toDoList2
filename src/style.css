@@ -60,6 +60,21 @@ align-items: baseline;
   border: none;
   }
 
+  .displayTdl {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tdldisplayContainer {
+    display: flex;
+    gap: 10px;
+    padding: 17px 9px;
+  }
+
+  #delete {
+    padding: 20px;
+  }
+
 
 
 
