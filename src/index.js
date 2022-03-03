@@ -13,23 +13,19 @@ document.querySelector('.inputTask').onkeyup = () => {
 // form submission
 document.querySelector('form').onsubmit = () => {
   const task = document.querySelector('.inputTask').value;
-  // get list value from user
-  const list = document.createElement('li');
-  list.classList.add('displayTdl');
-  // create button
-  const tdldisplayContainer = document.createElement('div');
-  tdldisplayContainer.innerHTML = (<input type='checkbox' class='checkbox'></input>);
-  tdldisplayContainer.classList.add('tdldisplayContainer');
-  list.appendChild(tdldisplayContainer);
-  list.innerHTML = task;
-  tDList.append(list);
-  // delete list
-  const deleteContainer = document.querySelector('div');
-  deleteContainer.innerHTML = (<i class='fa-solid fa-ellipsis-vertical'></i>);
-  list.appendChild(deleteContainer);
-
-  document.querySelector('.inputTask').value = '';
+  const li = document.createElement('li');
+  // display checkbox and delete
+  tDList.innerHTML += `<li class="displayTdl">
+<span>
+ <input type="checkbox"class="checkbox"/>
+ </span>
+<span>
+  <i class="fas fa-ellipsis-v"></i>
+  </span>
+</li>`;
   // list.innerHTML = task;
-
+  document.querySelector('.inputTask').value = '';
+  li.innerHTML = task;
+  tDList.append(li);
   return false;
 };
