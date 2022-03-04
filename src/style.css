@@ -22,7 +22,7 @@
 body {
   width: 100%;
   min-height: 100vh;
-  background-color: grey;
+  background-color: rgb(238, 226, 226);
   font-size: 1.4rem;
 }
 
