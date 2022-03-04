@@ -1,37 +1,78 @@
 import './style.css';
-import storage from './localstore.js';
-import taskActions from './storageUpdate.js';
-import app from './app.js';
-import task from './updateUI.js';
+import { getTask } from './data.js';
+import { deleteTask, deleteOne, updateTask } from './controllTools.js';
 
-const form = document.getElementById('form');
-const todoTextInput = document.getElementById('add-book');
+export const taskList = document.querySelector('.task-list-container');
 
-const getDefaultTasks = () => {
-  const tasks = task.get();
-  const storedTasks = storage.get('tasks');
-  if (storedTasks) {
-    storedTasks.map((t) => task.add(t));
-    app.renderTasks(storedTasks);
-  } else {
-    storage.set('tasks', tasks);
-    app.renderTasks(tasks);
-  }
-};
+const getInputValue = (task) => task.description;
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const savedTask = taskActions.addTask(todoTextInput.value);
-  task.add(savedTask);
-  const tasks = task.get();
-  app.renderTasks(tasks);
-  todoTextInput.value = '';
+getTask().forEach((task) => {
+  taskList.innerHTML += `<li class="container task flex-center" draggable="true">
+    <span class="left flex-center">
+     <input id=${task.index} type="checkbox" ${
+  task.completed ? 'checked' : ''
+} class="checkbox"/>
+     <form class="edit-form" action="/">
+       <input 
+         data-index-number=${task.index}
+         value='${getInputValue(task)}'
+         class="${task.completed ? 'edit-task disabled' : 'edit-task'}" ${
+  task.completed ? 'disabled' : ''
+}
+       >
+     </form>
+    </span>
+    <span class="right">
+      <i class="fas fa-ellipsis-v"></i>
+      <i class="far fa-trash-alt"></i>
+    </span>
+   </li>`;
 });
 
-getDefaultTasks();
-app.updateUI(storage.get('tasks'));
-app.showTrashIcon();
-app.editTastSubmit(task);
-app.completeTaskHandler();
-app.deleteTaskHandler();
-app.clearCompletedHandler();
+export const task = document.querySelectorAll('.task');
+export const editTask = document.querySelectorAll('.edit-task');
+const editForm = document.querySelectorAll('.edit-form');
+const reload = document.querySelector('.reload');
+export const checkbox = document.querySelectorAll('.checkbox');
+
+editForm.forEach((form) => {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    editTask.forEach((taskList) => {
+      getTask().forEach((task) => {
+        if (taskList.dataset.indexNumber === task.index) {
+          task.description = taskList.value;
+          localStorage.setItem('Task-list', JSON.stringify(getTask()));
+        }
+      });
+    });
+  });
+});
+
+window.addEventListener('load', () => {
+  updateTask();
+  dragDrop();
+});
+
+reload.addEventListener('click', () => {
+  window.location.reload();
+});
+
+task.forEach((item) => {
+  item.addEventListener('click', () => {
+    task.forEach((t) => t.classList.remove('focus'));
+    item.classList.add('focus');
+  });
+});
+
+deleteTask();
+
+task.forEach((item) => {
+  item.addEventListener('click', () => {
+    if (item.classList.contains('focus')) {
+      const deleteIcon = item.querySelector('.far');
+      const taskId = item.querySelector('.checkbox').id;
+      deleteOne(deleteIcon, taskId);
+    }
+  });
+});
