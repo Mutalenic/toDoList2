@@ -1,25 +1,20 @@
 import './style.css';
-import { getTask } from './data.js';
-import { deleteTask, deleteOne, updateTask } from './updateApp.js';
+import { addTask, getTask } from './util.js';
+import { deleteTask, deleteOne, updateTask } from './controllTools.js';
 
-export const taskList = document.querySelector('.task-list-container');
+export const taskList = document.querySelector('.tasks-list');
 
-const getInputValue = (task) => task.description;
+const tasks = getTask();
 
-getTask().forEach((task) => {
+tasks.forEach((task, i) => {
   taskList.innerHTML += `<li class="container task flex-center" draggable="true">
     <span class="left flex-center">
-     <input id=${task.index} type="checkbox" ${
-  task.completed ? 'checked' : ''
-} class="checkbox"/>
-     <form class="edit-form" action="/">
-       <input 
+     <input id=${task.index} type="checkbox" ${task.completed ? 'checked' : ''} class="checkbox"/>
+     <form class="edit-form" action="/" id="task_${i}">
+       <input id="task_${i}_v" name="${i}"
          data-index-number=${task.index}
-         value='${getInputValue(task)}'
-         class="${task.completed ? 'edit-task disabled' : 'edit-task'}" ${
-  task.completed ? 'disabled' : ''
-}
-       >
+         value='${task.description}'
+         class="${task.completed ? 'edit-task disabled' : 'edit-task'}" $task.completed ? 'disabled' : ''>
      </form>
     </span>
     <span class="right">
@@ -29,33 +24,23 @@ getTask().forEach((task) => {
    </li>`;
 });
 
-export const task = document.querySelectorAll('.task');
-export const editTask = document.querySelectorAll('.edit-task');
+const checkbox = document.querySelectorAll('.checkbox');
 const editForm = document.querySelectorAll('.edit-form');
-const reload = document.querySelector('.reload');
-export const checkbox = document.querySelectorAll('.checkbox');
 
-editForm.forEach((form) => {
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    editTask.forEach((taskList) => {
-      getTask().forEach((task) => {
-        if (taskList.dataset.indexNumber === task.index) {
-          task.description = taskList.value;
-          localStorage.setItem('Task-list', JSON.stringify(getTask()));
-        }
-      });
-    });
-  });
-});
+export const task = document.querySelectorAll('.task');
 
 window.addEventListener('load', () => {
+  addTask();
   updateTask();
-  dragDrop();
-});
 
-reload.addEventListener('click', () => {
-  window.location.reload();
+  editForm.forEach((form) => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const edit = document.getElementById(`${e.target.id}_v`);
+      tasks[parseInt(edit.name, 10)].description = edit.value;
+      localStorage.setItem('Task-list', JSON.stringify(tasks));
+    });
+  });
 });
 
 task.forEach((item) => {
@@ -76,3 +61,16 @@ task.forEach((item) => {
     }
   });
 });
+
+// console.log(editValue);
+// editTask.forEach((taskList) => {
+//   getTask().forEach((task) => {
+//     if (taskList.dataset.indexNumber === task.index) {
+//       task.description = taskList.value;
+
+//     }
+//   });
+// });
+// const getInputValue = (task) => task.description;
+// const reload = document.querySelector('.reload');
+// const editTask = document.querySelectorAll('.checkbox');
