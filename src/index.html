@@ -4,39 +4,40 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-    <title>TO DO LIST</title>
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
   </head>
-  <body><div class="mainContainer">
-        <div class="headerContainer">
-          <h3 class="header">Today's To Do</h3>
-          <i class="fas fa-sync-alt"></i>
-        </div>
-        <hr>
-        <form>
-          <div class="inputContainer">
-            <input
-              class="inputTask"
-              type="text"
-              placeholder="Add to your list..."
-            />
-            <button type="submit" aria-label="Add new task" class="addTaskBtn" id="submit">
-              <i class="fa fa-plus-circle"></i>
-            </button>
-              
-          </div>
-          <hr>
-        </form>
-        <ul class="tDList"></ul>
 
-        <button class="clearBTN" type="button">Clear all completed</button>
+  <body>
+    <section class="main-container">
+      <div class="header d-flex flex-center">
+        <span class="header-title">Today's To Do</span>
+        <span><i class="fas fa-sync-alt"></i></span>
       </div>
-      <script src="index.js"></script>
+
+      <form id="form" class="d-flex">
+        <div class="d-flex flex-center">
+          <input id="add-book" type="text" placeholder="Add to your list" />
+          <button type="submit" class="">
+            <i class="fa fa-level-down-alt"></i>
+          </button>
+        </div>
+      </form>
+
+      <ul class="tasks-list"></ul>
+
+      <div class="clear-btn">
+        <button type="button" class="clear-completed-btn">
+          Clear all completed
+        </button>
+      </div>
+    </section>
+
+    <script src="index.js"></script>
   </body>
 </html>
