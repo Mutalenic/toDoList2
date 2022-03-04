@@ -3,7 +3,7 @@
   --secondary: #ccc;
   --border: #dddbdb;
   --background: #f3f3f3;
-} 
+}
 
 * {
   box-sizing: border-box;
@@ -121,7 +121,7 @@ form input::-webkit-input-placeholder {
 }
 
 .tasks-list li i:hover {
-  color:rgb(5, 29, 2);
+  color: rgb(5, 29, 2);
   cursor: pointer;
 }
 
@@ -208,7 +208,8 @@ form input::-webkit-input-placeholder {
 .task-container.edit-mode .task-details span {
   display: none;
 }
+
 .checkbox {
   padding-right: 25px;
   margin-right: 17px;
- }
+}
