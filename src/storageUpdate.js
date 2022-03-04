@@ -1,4 +1,4 @@
-import storage from './storage.js';
+import storage from './localstore.js';
 
 const taskActions = (() => {
   const addTask = (description) => {

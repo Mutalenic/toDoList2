@@ -1,7 +1,7 @@
-import taskActions from './taskActions.js';
+import taskActions from './storageUpdate.js';
 
 const tasksList = document.querySelector('.tasks-list');
-export const app = (() => {
+ const app = (() => {
   const showTrashIcon = () => {
     const editBtns = document.querySelectorAll('.task-edit-btn');
 
@@ -117,4 +117,4 @@ export const app = (() => {
   };
 })();
 
-
+export default app;
