@@ -1,4 +1,4 @@
-// import './style.css';
+import './style.css';
 import storage from './localstore.js';
 import taskActions from './storageUpdate.js';
 import app from './app.js';
