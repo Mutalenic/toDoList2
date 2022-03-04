@@ -7,7 +7,7 @@ export const taskList = document.querySelector('.tasks-list');
 const tasks = getTask();
 
 tasks.forEach((task, i) => {
-  taskList.innerHTML += `<li class="container task flex-center" draggable="true">
+  taskList.innerHTML += `<li class="container task flex-center">
     <span class="left flex-center">
      <input id=${task.index} type="checkbox" ${task.completed ? 'checked' : ''} class="checkbox"/>
      <form class="edit-form" action="/" id="task_${i}">
@@ -18,13 +18,11 @@ tasks.forEach((task, i) => {
      </form>
     </span>
     <span class="right">
-      <i class="fas fa-ellipsis-v"></i>
       <i class="far fa-trash-alt"></i>
     </span>
    </li>`;
 });
 
-const checkbox = document.querySelectorAll('.checkbox');
 const editForm = document.querySelectorAll('.edit-form');
 
 export const task = document.querySelectorAll('.task');
@@ -61,16 +59,3 @@ task.forEach((item) => {
     }
   });
 });
-
-// console.log(editValue);
-// editTask.forEach((taskList) => {
-//   getTask().forEach((task) => {
-//     if (taskList.dataset.indexNumber === task.index) {
-//       task.description = taskList.value;
-
-//     }
-//   });
-// });
-// const getInputValue = (task) => task.description;
-// const reload = document.querySelector('.reload');
-// const editTask = document.querySelectorAll('.checkbox');

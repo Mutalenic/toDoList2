@@ -16,6 +16,7 @@
 }
 
 .flex-center {
+  display: flex;
   align-items: center;
 }
 
@@ -96,10 +97,16 @@ form input::-webkit-input-placeholder {
 }
 
 .tasks-list li {
+  display: flex;
+  gap: 55%;
   width: 100%;
   list-style: none;
   border-bottom: 1px solid grey;
   padding: 0.7rem 1.2rem;
+}
+
+.right {
+  margin-right: 5%;
 }
 
 .task-container button i {
@@ -201,3 +208,7 @@ form input::-webkit-input-placeholder {
 .task-container.edit-mode .task-details span {
   display: none;
 }
+.checkbox {
+  padding-right: 25px;
+  margin-right: 17px;
+ }
