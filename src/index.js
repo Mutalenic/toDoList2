@@ -1,8 +1,8 @@
-import './style.css';
+// import './style.css';
 import storage from './storage.js';
 import taskActions from './taskActions.js';
-import dom from './dom.js';
-import task from './Task.js';
+import app from './app.js';
+import task from './update.js';
 
 const form = document.getElementById('form');
 const todoTextInput = document.getElementById('add-book');
@@ -12,10 +12,10 @@ const getDefaultTasks = () => {
   const storedTasks = storage.get('tasks');
   if (storedTasks) {
     storedTasks.map((t) => task.add(t));
-    dom.renderTasks(storedTasks);
+    app.renderTasks(storedTasks);
   } else {
     storage.set('tasks', tasks);
-    dom.renderTasks(tasks);
+    app.renderTasks(tasks);
   }
 };
 
@@ -24,14 +24,14 @@ form.addEventListener('submit', (e) => {
   const savedTask = taskActions.addTask(todoTextInput.value);
   task.add(savedTask);
   const tasks = task.get();
-  dom.renderTasks(tasks);
+  app.renderTasks(tasks);
   todoTextInput.value = '';
 });
 
 getDefaultTasks();
-dom.updateUI(storage.get('tasks'));
-dom.showTrashIcon();
-dom.editTastSubmit(task);
-dom.completeTaskHandler();
-dom.deleteTaskHandler();
-dom.clearCompletedHandler();
+app.updateUI(storage.get('tasks'));
+app.showTrashIcon();
+app.editTastSubmit(task);
+app.completeTaskHandler();
+app.deleteTaskHandler();
+app.clearCompletedHandler();

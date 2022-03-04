@@ -1,7 +1,7 @@
 import taskActions from './taskActions.js';
 
 const tasksList = document.querySelector('.tasks-list');
-const dom = (() => {
+export const app = (() => {
   const showTrashIcon = () => {
     const editBtns = document.querySelectorAll('.task-edit-btn');
 
@@ -48,10 +48,10 @@ const dom = (() => {
               </div>
             `;
       showTrashIcon();
-      dom.deleteTaskHandler();
-      dom.editTastSubmit();
-      dom.completeTaskHandler();
-      dom.clearCompletedHandler();
+      app.deleteTaskHandler();
+      app.editTastSubmit();
+      app.completeTaskHandler();
+      app.clearCompletedHandler();
       return tasksList.appendChild(taskItem);
     });
   };
@@ -117,4 +117,4 @@ const dom = (() => {
   };
 })();
 
-export default dom;
+
