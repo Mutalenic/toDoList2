@@ -1,6 +1,6 @@
 // import './style.css';
-import storage from './storage.js';
-import taskActions from './taskActions.js';
+import storage from './localstore.js';
+import taskActions from './storageUpdate.js';
 import app from './app.js';
 import task from './updateUI.js';
 
