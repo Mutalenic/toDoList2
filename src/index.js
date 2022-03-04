@@ -2,7 +2,7 @@
 import storage from './storage.js';
 import taskActions from './taskActions.js';
 import app from './app.js';
-import task from './update.js';
+import task from './updateUI.js';
 
 const form = document.getElementById('form');
 const todoTextInput = document.getElementById('add-book');
