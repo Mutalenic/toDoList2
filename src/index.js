@@ -1,31 +1,37 @@
-// import './style.css';
+import './style.css';
+import storage from './storage.js';
+import taskActions from './taskActions.js';
+import dom from './dom.js';
+import task from './Task.js';
 
-const tDList = document.querySelector('.tDList');
-document.querySelector('#submit').disabled = true;
-document.querySelector('.inputTask').onkeyup = () => {
-  if (document.querySelector('.inputTask').value.length > 0) {
-    document.querySelector('#submit').disabled = false;
+const form = document.getElementById('form');
+const todoTextInput = document.getElementById('add-book');
+
+const getDefaultTasks = () => {
+  const tasks = task.get();
+  const storedTasks = storage.get('tasks');
+  if (storedTasks) {
+    storedTasks.map((t) => task.add(t));
+    dom.renderTasks(storedTasks);
   } else {
-    document.querySelector('#submit').disabled = true;
+    storage.set('tasks', tasks);
+    dom.renderTasks(tasks);
   }
 };
 
-// form submission
-document.querySelector('form').onsubmit = () => {
-  const task = document.querySelector('.inputTask').value;
-  const li = document.createElement('li');
-  // display checkbox and delete
-  tDList.innerHTML += `<li class="displayTdl">
-<span>
- <input type="checkbox"class="checkbox"/>
- </span>
-<span>
-  <i class="fas fa-ellipsis-v"></i>
-  </span>
-</li>`;
-  // list.innerHTML = task;
-  document.querySelector('.inputTask').value = '';
-  li.innerHTML = task;
-  tDList.append(li);
-  return false;
-};
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const savedTask = taskActions.addTask(todoTextInput.value);
+  task.add(savedTask);
+  const tasks = task.get();
+  dom.renderTasks(tasks);
+  todoTextInput.value = '';
+});
+
+getDefaultTasks();
+dom.updateUI(storage.get('tasks'));
+dom.showTrashIcon();
+dom.editTastSubmit(task);
+dom.completeTaskHandler();
+dom.deleteTaskHandler();
+dom.clearCompletedHandler();
