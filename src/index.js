@@ -1,48 +1,77 @@
 import './style.css';
-import { addTask, getTask } from './util.js';
-import { deleteOne, updateTask } from './controllTools.js';
+import { getTask } from './data.js';
+import { deleteTask, deleteOne, updateTask } from './controllTools.js';
 
-export const taskList = document.querySelector('.tasks-list');
+export const taskList = document.querySelector('.task-list-container');
 
-const tasks = getTask();
+const getInputValue = (task) => task.description;
 
-tasks.forEach((task, i) => {
-  taskList.innerHTML += `<li class="container task flex-center">
+getTask().forEach((task) => {
+  taskList.innerHTML += `<li class="container task flex-center" draggable="true">
     <span class="left flex-center">
-     <input id=${task.index} type="checkbox" ${task.completed ? 'checked' : ''} class="checkbox"/>
-     <form class="edit-form" action="/" id="task_${i}">
-       <input id="task_${i}_v" name="${i}"
+     <input id=${task.index} type="checkbox" ${
+  task.completed ? 'checked' : ''
+} class="checkbox"/>
+     <form class="edit-form" action="/">
+       <input 
          data-index-number=${task.index}
-         value='${task.description}'
-         class="${task.completed ? 'edit-task disabled' : 'edit-task'}" $task.completed ? 'disabled' : ''>
+         value='${getInputValue(task)}'
+         class="${task.completed ? 'edit-task disabled' : 'edit-task'}" ${
+  task.completed ? 'disabled' : ''
+}
+       >
      </form>
     </span>
     <span class="right">
-      <button value="${i}" class="far fa-trash-alt"></button>
+      <i class="fas fa-ellipsis-v"></i>
+      <i class="far fa-trash-alt"></i>
     </span>
    </li>`;
 });
 
-const editForm = document.querySelectorAll('.edit-form');
-const trash = document.querySelectorAll('.far');
 export const task = document.querySelectorAll('.task');
+export const editTask = document.querySelectorAll('.edit-task');
+const editForm = document.querySelectorAll('.edit-form');
+const reload = document.querySelector('.reload');
+export const checkbox = document.querySelectorAll('.checkbox');
 
-window.addEventListener('load', () => {
-  addTask();
-  updateTask();
-
-  editForm.forEach((form) => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const edit = document.getElementById(`${e.target.id}_v`);
-      tasks[parseInt(edit.name, 10)].description = edit.value;
-      localStorage.setItem('Task-list', JSON.stringify(tasks));
+editForm.forEach((form) => {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    editTask.forEach((taskList) => {
+      getTask().forEach((task) => {
+        if (taskList.dataset.indexNumber === task.index) {
+          task.description = taskList.value;
+          localStorage.setItem('Task-list', JSON.stringify(getTask()));
+        }
+      });
     });
   });
+});
 
-  trash.forEach((e) => {
-    e.addEventListener('click', (e2) => {
-      deleteOne(parseInt(e2.target.value, 10));
-    });
+window.addEventListener('load', () => {
+  updateTask();
+});
+
+reload.addEventListener('click', () => {
+  window.location.reload();
+});
+
+task.forEach((item) => {
+  item.addEventListener('click', () => {
+    task.forEach((t) => t.classList.remove('focus'));
+    item.classList.add('focus');
+  });
+});
+
+deleteTask();
+
+task.forEach((item) => {
+  item.addEventListener('click', () => {
+    if (item.classList.contains('focus')) {
+      const deleteIcon = item.querySelector('.far');
+      const taskId = item.querySelector('.checkbox').id;
+      deleteOne(deleteIcon, taskId);
+    }
   });
 });

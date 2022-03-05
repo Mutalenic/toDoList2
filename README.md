@@ -2,8 +2,11 @@
 
 # To Do List:
 
-In this project, I implemented the CRUD (create, update, delete) methods to create a To Do List.
-The user is able to add,delete and update tasks.
+In this project, I added some functionality to the TodoList application and made it interactive. The user will also be able to mark task completion by selecting the corresponding checkbox (or undo it by unchecking the checkbox).
+ 
+A ToDo List is a list of tasks you need to complete or things that you want to do.
+
+![tdlimage](https://user-images.githubusercontent.com/19844175/156894074-784c0ab9-e9cb-4ffc-9e15-09c1489cfb02.png)
 
 ## Built With
 
@@ -61,6 +64,11 @@ To get a local copy up and running follow these simple example steps.
 
 .copy the repo URL
 .git clone (https://github.com/Mutalenic/toDoList2/issues)
+
+## Acknowledgments
+
+Thanks to My coding Partners and Standup-team 
+
 
 ## Show your support
 
