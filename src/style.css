@@ -32,6 +32,7 @@ i { cursor: pointer; }
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin: 20%;
 }
 
 #tasks {
@@ -53,7 +54,7 @@ i { cursor: pointer; }
   flex-direction: row;
   padding: 10px;
   width: 100%;
-  border-bottom: 1px solid #c1c4c9;
+  border-bottom: 1px solid gray;
   justify-content: space-between;
 }
 
@@ -125,7 +126,7 @@ i { cursor: pointer; }
 }
 
 .title {
-  color: #5c5050;
+  color: #131212;
   font-size: 1.3rem;
 }
 
