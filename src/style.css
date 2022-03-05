@@ -1,77 +1,215 @@
+:root {
+  --primary: #3a3636;
+  --secondary: #ccc;
+  --border: #dddbdb;
+  --background: #f3f3f3;
+}
+
 * {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
-  list-style: none;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
 }
 
 body {
-  background-color: #faebd7;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgb(238, 226, 226);
+  font-size: 1.4rem;
 }
 
-.mainContainer {
-  display: flex;
-  flex-direction: column;
-  margin: 30%;
-  border: 1px solid grey;
-  background-color: whitesmoke;
-  box-shadow: 2px 5px grey;
+i {
+  cursor: pointer;
+  color: rgb(5, 29, 2);
 }
 
-.headerContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 20px;
-}
-
-.inputContainer {
-  display: flex;
+section {
+  background-color: #fff;
+  width: 50%;
+  min-width: 300px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .header {
+  border-bottom: 1px solid gray;
+  padding: 1.2rem 1.5rem;
+  color: black;
+  justify-content: space-between;
+}
+
+form button {
+  background-color: transparent;
+  border: none;
+  padding: 0.6rem;
+}
+
+form button i {
+  transform: rotate(90deg);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.header i {
+  transform: rotate(90deg);
   font-size: 18px;
 }
 
-.fa-sync-alt {
-  font-size: small;
-  align-items: baseline;
-}
-
-.fa-plus-circle {
-  font-size: 22px;
-}
-
-.inputTask {
-  padding: 15px 10px 10px 10px;
-  border: none;
+form > div {
+  border-bottom: 1px solid grey;
+  padding: 0.7rem 1.5rem;
+  justify-content: space-between;
   width: 100%;
 }
 
-.addTaskBtn {
-  padding-right: 11px;
+form input {
   border: none;
-  background-color: white;
+  outline: none;
+  min-width: 250px;
+  padding: 0.8rem 0;
+  flex: 1;
 }
 
-.clearBTN {
-  padding: 20px 0;
-  border: none;
+form input,
+form input::-webkit-input-placeholder {
+  font-size: 1.2rem;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-weight: 100;
+  color: #838282;
 }
 
-.displayTdl {
+.tasks-list {
+  min-width: 100%;
+}
+
+.tasks-list li {
   display: flex;
-  justify-content: space-between;
+  gap: 55%;
+  width: 100%;
+  list-style: none;
   border-bottom: 1px solid grey;
+  padding: 0.7rem 1.2rem;
 }
 
-.tdldisplayContainer {
+.right {
+  margin-right: 5%;
+}
+
+.task-container button i {
+  font-size: 1.2rem;
+}
+
+.tasks-list li label {
+  margin-left: 6px;
+  font-size: inherit;
+  color: black;
+  cursor: pointer;
+}
+
+.tasks-list li i:hover {
+  color: rgb(5, 29, 2);
+  cursor: pointer;
+}
+
+.clear-btn button {
+  width: 100%;
+  font-size: inherit;
+  padding: 1.2rem;
+  border: none;
+  outline: none;
+  color: rgba(44, 1, 1, 0.877);
+  background-color: rgba(61, 48, 48, 0.37);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  cursor: pointer;
+}
+
+.task-container .task-details {
+  flex: 1;
   display: flex;
-  gap: 10px;
-  padding: 17px 9px;
+  padding: 0 1rem;
 }
 
-#delete {
-  padding: 20px;
+.task-container .task-details span {
+  margin-left: 6px;
+  font-size: inherit;
+  color: black;
+}
+
+.task-container .task-details span.compeleted {
+  text-decoration: line-through;
+}
+
+.task-container .task-details input {
+  border: none;
+  font-size: inherit;
+  color: black;
+  outline: none;
+  flex: 1;
+  display: none;
+  background-color: transparent;
+}
+
+.task-container .task-action-btns button {
+  width: 2.2rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.3rem 0;
+}
+
+.task-container .task-action-btns button i {
+  padding: 0.6rem;
+}
+
+.task-container .task-action-btns button:last-child {
+  display: none;
+}
+
+.edit-task-form {
+  flex: 1;
+  display: flex;
+}
+
+.task-container.edit-mode {
+  background-color: #faf3db;
+}
+
+.task-container.edit-mode .task-action-btns button:last-child {
+  display: block;
+}
+
+.task-details.completed span {
+  text-decoration: line-through;
+}
+
+.task-container.edit-mode .task-action-btns button:first-child {
+  display: none;
+}
+
+.task-container.edit-mode .task-details input {
+  display: block;
+}
+
+.task-container.edit-mode .task-details span {
+  display: none;
+}
+
+.checkbox {
+  padding-right: 25px;
+  margin-right: 17px;
 }

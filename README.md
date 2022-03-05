@@ -2,7 +2,8 @@
 
 # To Do List:
 
-In this project, I built a basic website with simple HTML list of To Do tasks.The web page is built using webpack and served by a webpack dev server.
+In this project, I implemented the CRUD (create, update, delete) methods to create a To Do List.
+The user is able to add,delete and update tasks.
 
 ## Built With
 
@@ -14,6 +15,35 @@ In this project, I built a basic website with simple HTML list of To Do tasks.Th
 
 ## Demo Link
 [live link](https://mutalenic.github.io/toDoList2/)
+
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+1. Clone the Repo or Download the Zip file or `https://mutalenic.github.io/toDoList2.git`.
+2. `cd /toDoList2`
+3. Open it with the live server by using this command: `npm run build` or `npm start`
+
+## Test
+
+For tracking linter errors locally you need to follow these steps:
+
+After cloning the project you need to run these commands
+
+`npm install` `This command will download all the dependancies of the project`
+
+For tracking linter errors in HTML files run:
+
+`npx hint .`
+
+For tracking linter errors in CSS or SASS files run:
+
+`npx stylelint "\*_/_.{css,scss}"`
+
+And For tracking linter errors in JavaScript files run:
+
+`npx eslint .`
+
 
 ## Authors
 
