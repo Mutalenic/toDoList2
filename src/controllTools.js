@@ -1,10 +1,8 @@
-import { getTask } from './util.js';
-
-const checkbox = document.querySelectorAll('.checkbox');
-const editTask = document.querySelectorAll('.checkbox');
+import { checkbox, editTask } from './index.js';
+import { getTask } from './data.js';
 
 export const deleteTask = () => {
-  const clearTask = document.querySelector('.clear-completed-btn');
+  const clearTask = document.querySelector('.clear-task');
   clearTask.addEventListener('click', () => {
     if (getTask().length > 0) {
       const filterCompliteTask = getTask().filter(
@@ -16,10 +14,32 @@ export const deleteTask = () => {
   });
 };
 
-export const deleteOne = (taskId) => {
-  const filteredTask = getTask().filter((task, i) => i !== taskId);
-  localStorage.setItem('Task-list', JSON.stringify(filteredTask));
-  window.location.reload();
+export const addTask = () => {
+  class Task {
+    constructor(description) {
+      this.description = description;
+      this.index = new Date();
+      this.completed = false;
+    }
+  }
+  const addTaskForm = document.querySelector('#add-task');
+  const data = JSON.parse(localStorage.getItem('Task-list')) || [];
+  addTaskForm.addEventListener('click', () => {
+    const inputTaskValue = document.querySelector('#add-task-input').value;
+    if (inputTaskValue === '') return;
+    const newTask = new Task(inputTaskValue);
+    data.push(newTask);
+    localStorage.setItem('Task-list', JSON.stringify(data));
+  });
+  return data;
+};
+
+export const deleteOne = (deleteIcon, taskId) => {
+  deleteIcon.addEventListener('click', () => {
+    const filteredTask = getTask().filter((task) => task.index !== taskId);
+    localStorage.setItem('Task-list', JSON.stringify(filteredTask));
+    window.location.reload();
+  });
 };
 
 export const updateTask = () => {
