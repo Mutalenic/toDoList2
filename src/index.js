@@ -46,22 +46,3 @@ window.addEventListener('load', () => {
     });
   });
 });
-
-// task.forEach((item) => {
-//   item.addEventListener('click', () => {
-//     task.forEach((t) => t.classList.remove('focus'));
-//     item.classList.add('focus');
-//   });
-// });
-
-// deleteTask();
-
-// task.forEach((item) => {
-//   item.addEventListener('click', () => {
-//     if (item.classList.contains('focus')) {
-//       const deleteIcon = item.querySelector('.far');
-//       const taskId = item.querySelector('.checkbox').id;
-//       deleteOne(deleteIcon, taskId);
-//     }
-//   });
-// });
