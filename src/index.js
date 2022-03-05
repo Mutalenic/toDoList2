@@ -1,6 +1,6 @@
 import './style.css';
 import { addTask, getTask } from './util.js';
-import { deleteTask, deleteOne, updateTask } from './controllTools.js';
+import { deleteOne, updateTask } from './controllTools.js';
 
 export const taskList = document.querySelector('.tasks-list');
 
@@ -18,13 +18,13 @@ tasks.forEach((task, i) => {
      </form>
     </span>
     <span class="right">
-      <i class="far fa-trash-alt"></i>
+      <button value="${i}" class="far fa-trash-alt"></button>
     </span>
    </li>`;
 });
 
 const editForm = document.querySelectorAll('.edit-form');
-
+const trash = document.querySelectorAll('.far');
 export const task = document.querySelectorAll('.task');
 
 window.addEventListener('load', () => {
@@ -39,23 +39,29 @@ window.addEventListener('load', () => {
       localStorage.setItem('Task-list', JSON.stringify(tasks));
     });
   });
-});
 
-task.forEach((item) => {
-  item.addEventListener('click', () => {
-    task.forEach((t) => t.classList.remove('focus'));
-    item.classList.add('focus');
+  trash.forEach((e) => {
+    e.addEventListener('click', (e2) => {
+      deleteOne(parseInt(e2.target.value, 10));
+    });
   });
 });
 
-deleteTask();
+// task.forEach((item) => {
+//   item.addEventListener('click', () => {
+//     task.forEach((t) => t.classList.remove('focus'));
+//     item.classList.add('focus');
+//   });
+// });
 
-task.forEach((item) => {
-  item.addEventListener('click', () => {
-    if (item.classList.contains('focus')) {
-      const deleteIcon = item.querySelector('.far');
-      const taskId = item.querySelector('.checkbox').id;
-      deleteOne(deleteIcon, taskId);
-    }
-  });
-});
+// deleteTask();
+
+// task.forEach((item) => {
+//   item.addEventListener('click', () => {
+//     if (item.classList.contains('focus')) {
+//       const deleteIcon = item.querySelector('.far');
+//       const taskId = item.querySelector('.checkbox').id;
+//       deleteOne(deleteIcon, taskId);
+//     }
+//   });
+// });

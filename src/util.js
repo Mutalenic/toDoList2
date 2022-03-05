@@ -1,12 +1,4 @@
 const addTask = () => {
-  class Task {
-    constructor(description) {
-      this.description = description;
-      this.index = new Date();
-      this.completed = false;
-    }
-  }
-
   const addTaskForm = document.querySelector('#form');
   const data = JSON.parse(localStorage.getItem('Task-list')) || [];
 
@@ -14,7 +6,22 @@ const addTask = () => {
     e.preventDefault();
     const inputTaskValue = document.querySelector('#add-book').value;
     if (inputTaskValue === '') return;
-    const newTask = new Task(inputTaskValue);
+    let newTask = {};
+
+    if (data.length === 0) {
+      newTask = {
+        description: inputTaskValue,
+        index: 1,
+        completed: false,
+      };
+    } else {
+      newTask = {
+        description: inputTaskValue,
+        index: data.length + 1,
+        completed: false,
+      };
+    }
+
     data.push(newTask);
     localStorage.setItem('Task-list', JSON.stringify(data));
     window.location.reload();

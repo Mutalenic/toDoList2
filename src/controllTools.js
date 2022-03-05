@@ -16,12 +16,10 @@ export const deleteTask = () => {
   });
 };
 
-export const deleteOne = (deleteIcon, taskId) => {
-  deleteIcon.addEventListener('click', () => {
-    const filteredTask = getTask().filter((task) => task.index !== taskId);
-    localStorage.setItem('Task-list', JSON.stringify(filteredTask));
-    window.location.reload();
-  });
+export const deleteOne = (taskId) => {
+  const filteredTask = getTask().filter((task, i) => i !== taskId);
+  localStorage.setItem('Task-list', JSON.stringify(filteredTask));
+  window.location.reload();
 };
 
 export const updateTask = () => {
