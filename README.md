@@ -6,6 +6,8 @@ In this project, I added some functionality to the TodoList application and made
  
 A ToDo List is a list of tasks you need to complete or things that you want to do.
 
+![tdlimage](https://user-images.githubusercontent.com/19844175/156894074-784c0ab9-e9cb-4ffc-9e15-09c1489cfb02.png)
+
 ## Built With
 
 - HTML
