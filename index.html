@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <title>To do List</title>
+  <script defer src="main.js"></script></head>
+  <body>
+    <div id="tasks" class="flex-center">
+      <div class="task-list flex-center">
+        <div class="container flex-center">
+          <span class="title">Today's To Do</span>
+          <span class="reload"><i class="fas fa-sync-alt"></i></span>
+        </div>
+        <div class="container flex-center">
+          <form id="add-task" class="flex-center">
+            <input
+              id="add-task-input"
+              type="text"
+              placeholder="Add to your list"
+            />
+            <button type="submit" aria-label="Add new task">
+              <i class="fa fa-plus-circle"></i>
+            </button>
+          </form>
+        </div>
+        <ul class="task-list-container"></ul>
+        <button class="container btn clear-task" type="button">
+          Clear all completed
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
