@@ -63,7 +63,7 @@ Feel free to check the [https://github.com/Mutalenic/toDoList2/issues]
 To get a local copy up and running follow these simple example steps.
 
 .copy the repo URL
-.git clone (https://github.com/Mutalenic/toDoList2/issues)
+.git clone (https://github.com/Mutalenic/toDoList2.git)
 
 ## Acknowledgments
 
