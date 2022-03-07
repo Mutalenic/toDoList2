@@ -11,7 +11,7 @@ body {
   font-family: " Poppins ", sans-serif;
   width: 100%;
   height: 100vh;
-  background-color: #f1ceb9;
+  background-color: #f8f9fa;
   font-size: 16px;
 }
 
@@ -32,7 +32,6 @@ i { cursor: pointer; }
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin: 20%;
 }
 
 #tasks {
@@ -54,7 +53,7 @@ i { cursor: pointer; }
   flex-direction: row;
   padding: 10px;
   width: 100%;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #c1c4c9;
   justify-content: space-between;
 }
 
@@ -126,7 +125,7 @@ i { cursor: pointer; }
 }
 
 .title {
-  color: #131212;
+  color: #5c5050;
   font-size: 1.3rem;
 }
 
@@ -149,6 +148,8 @@ i { cursor: pointer; }
   font-style: italic;
   text-decoration: line-through;
 }
+
+.dragging { border: 2px solid #383c41; }
 
 .focus { background-color: #faf3db; }
 

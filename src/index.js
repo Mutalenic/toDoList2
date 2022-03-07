@@ -1,6 +1,7 @@
 import './style.css';
 import { getTask } from './data.js';
 import { deleteTask, deleteOne, updateTask } from './controllTools.js';
+import { dragDrop } from './dragAndDrop.js';
 
 export const taskList = document.querySelector('.task-list-container');
 
@@ -51,6 +52,7 @@ editForm.forEach((form) => {
 
 window.addEventListener('load', () => {
   updateTask();
+  dragDrop();
 });
 
 reload.addEventListener('click', () => {
