@@ -25,7 +25,7 @@ To get a local copy up and running follow these simple example steps.
 
 1. Clone the Repo or Download the Zip file or `https://mutalenic.github.io/toDoList2.git`.
 2. `cd /toDoList2`
-3. Open it with the live server by using this command: `npm run build` or `npm start`
+3. Open it using live server by using this command: `npm run build` or `npm start`
 
 ## Test
 
