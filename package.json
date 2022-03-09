@@ -1,7 +1,7 @@
 {
-  "name": "to-do-list-app",
+  "name": "todolist2",
   "version": "1.0.0",
-  "description": "\"To-do list\" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete.",
+  "description": "\"toDolist2\" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,22 +12,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cynthiainga/to-do-list-app.git"
+    "url": "git+https://mutalenic.github.io/toDoList2"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cynthiainga/to-do-list-app/issues"
+    "url": "https://github.com/Mutalenic/toDoList2/issues"
   },
-  "homepage": "https://github.com/cynthiainga/to-do-list-app#readme",
+  "homepage": "https://github.com/Mutalenic/toDoList2/issues#readme",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.0.0",
     "gh-pages": "^3.2.3",
     "parcel-bundler": "^1.12.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.2",
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.3",
