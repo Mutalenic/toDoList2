@@ -34,6 +34,7 @@ export const editTask = document.querySelectorAll('.edit-task');
 const editForm = document.querySelectorAll('.edit-form');
 const reload = document.querySelector('.reload');
 export const checkbox = document.querySelectorAll('.checkbox');
+const focusOut = document.querySelector('body');
 
 editForm.forEach((form) => {
   form.addEventListener('submit', (e) => {
@@ -54,6 +55,10 @@ window.addEventListener('load', () => {
 });
 
 reload.addEventListener('click', () => {
+  window.location.reload();
+});
+
+focusOut.addEventListener('focusout', () => {
   window.location.reload();
 });
 
