@@ -17,7 +17,7 @@ A ToDo List is a list of tasks you need to complete or things that you want to d
 
 
 ## Demo Link
-[live link](https://mutalenic.github.io/toDoList2/)
+[live link](https://mutalenic.github.io/toDoList2/dist/)
 
 ## Getting Started
 
