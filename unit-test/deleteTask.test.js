@@ -1,4 +1,4 @@
-import deleteTask from './addTask.js';
+import deleteTask from './deleteTask';
 
 
 document.body.innerHTML =`
@@ -45,15 +45,24 @@ document.body.innerHTML =`
 `
 
 const div = document.querySelector('.task-list-container');
-const taskListArr = Object.entries(div.children)
+const taskListArr = Object.keys(div.children)
 console.log(taskListArr)
 
-test('Testing Remove', () => {
-  deleteTask(taskListArr, 2);
-  expect(taskListArr).toHaveLength(2)
+describe('Test Delete', () => {
+  test('Testing with correct index', () => {
+    const newTaskListArr  = deleteTask(taskListArr, 1);
+    expect(newTaskListArr).toHaveLength(2)
+  })
+
+  test('Test with index < 0', () => {
+    const newTaskListArr  = deleteTask(taskListArr,-1);
+    expect(newTaskListArr).toHaveLength(3)
+  })
+
+  test('Test with index > length', () => {
+    const newTaskListArr  = deleteTask(taskListArr, 5);
+    expect(newTaskListArr).toHaveLength(3)
+  })
+
+
 })
-
-
-
-
-
