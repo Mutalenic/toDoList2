@@ -4,7 +4,7 @@
 
 import addTask from './addTask.js';
 
-const task_1 = [
+const task1 = [
   {
     description: 'hello_1',
     index: 0,
@@ -12,7 +12,7 @@ const task_1 = [
   },
 ];
 
-const task_2 = [
+const task2 = [
   {
     description: 'hello_2',
     index: 1,
@@ -39,7 +39,9 @@ document.body.innerHTML = `
             </button>
           </form>
         </div>
-        <ul class="task-list-container"></ul>
+        <ul class="task-list-container">
+          
+        </ul>
         <button class="container btn clear-task" type="button">
           Clear all completed
         </button>
@@ -50,8 +52,8 @@ describe('Add tasks', () => {
   test('testing add', () => {
     const div = document.querySelector('.task-list-container');
     let li;
-    addTask(task_1);
-    task_1.forEach((e) => {
+    addTask(task1);
+    task1.forEach((e) => {
       li = document.createElement('li');
       li.innerHTML = e.description;
       div.appendChild(li);
@@ -64,8 +66,8 @@ describe('Add tasks', () => {
   test('testing add', () => {
     const div = document.querySelector('.task-list-container');
     let li;
-    addTask(task_2);
-    task_2.forEach((e) => {
+    addTask(task2);
+    task2.forEach((e) => {
       li = document.createElement('li');
       li.innerHTML = e.description;
       div.appendChild(li);
