@@ -4,10 +4,18 @@
 
 import addTask from './addTask.js';
 
-const task = [
+const task_1 = [
   {
-    description: 'hello',
-    index: 2,
+    description: 'hello_1',
+    index: 0,
+    completed: false,
+  },
+];
+
+const task_2 = [
+  {
+    description: 'hello_2',
+    index: 1,
     completed: false,
   },
 ];
@@ -38,17 +46,34 @@ document.body.innerHTML = `
       </div>
     </div>
 `;
-
-test('testing add', () => {
-  const div = document.querySelector('.task-list-container');
-  let li;
-  addTask(task);
-  task.forEach((e) => {
-    li = document.createElement('li');
-    li.innerHTML = e.description;
-    div.appendChild(li);
+describe('Add tasks', () => {
+  test('testing add', () => {
+    const div = document.querySelector('.task-list-container');
+    let li;
+    addTask(task_1);
+    task_1.forEach((e) => {
+      li = document.createElement('li');
+      li.innerHTML = e.description;
+      div.appendChild(li);
+    });
+    const word = document.querySelectorAll('.task-list-container');
+  
+    expect(word).toHaveLength(1);
   });
-  const word = document.querySelectorAll('.task-list-container');
 
-  expect(word).toHaveLength(1);
-});
+  test('testing add', () => {
+    const div = document.querySelector('.task-list-container');
+    let li;
+    addTask(task_2);
+    task_2.forEach((e) => {
+      li = document.createElement('li');
+      li.innerHTML = e.description;
+      div.appendChild(li);
+    });
+    const word = document.querySelectorAll('.task-list-container');
+  
+    expect(word).toHaveLength(1);
+  });
+})
+
+
