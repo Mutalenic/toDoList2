@@ -57,7 +57,7 @@ describe('Add tasks', () => {
       div.appendChild(li);
     });
     const word = document.querySelectorAll('.task-list-container');
-  
+
     expect(word).toHaveLength(1);
   });
 
@@ -71,9 +71,7 @@ describe('Add tasks', () => {
       div.appendChild(li);
     });
     const word = document.querySelectorAll('.task-list-container');
-  
+
     expect(word).toHaveLength(1);
   });
-})
-
-
+});
