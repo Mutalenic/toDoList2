@@ -31,10 +31,10 @@ getTask().forEach((task) => {
 });
 
 export const task = document.querySelectorAll('.task');
-export const editTask = document.querySelectorAll('.edit-task');
 const editForm = document.querySelectorAll('.edit-form');
 const reload = document.querySelector('.reload');
 const focusOut = document.querySelector('body');
+export const editTask = document.querySelectorAll('.edit-task');
 export const checkbox = document.querySelectorAll('.checkbox');
 
 editForm.forEach((form) => {
