@@ -1,5 +1,3 @@
-import {storageData} from './storage.js'
-
 export const addTask = () => {
   class Task {
     constructor(description) {
@@ -9,7 +7,7 @@ export const addTask = () => {
     }
   }
   const addTaskForm = document.querySelector('#add-task');
-  const data = storageData;
+  const data = storage
   addTaskForm.addEventListener('click', () => {
     const inputTaskValue = document.querySelector('#add-task-input').value;
     if (inputTaskValue === '') return;
@@ -19,4 +17,3 @@ export const addTask = () => {
   });
   return data;
 };
-

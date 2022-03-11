@@ -1,79 +1,35 @@
 /**
  * @jest-environment jsdom
  */
+ import {addTask} from './addTask.js';
+ import {dom} from './dom.js';
+ import {storageData} from './storage.js';
 
-import addTask from './addTask.js';
+ 
 
-const task1 = [
-  {
-    description: 'hello_1',
+
+
+// jest.mock('../src/controllTools.js')
+
+const task1 = [{
+    description: 'hello-task',
     index: 0,
     completed: false,
-  },
-];
+  }];
 
-const task2 = [
-  {
-    description: 'hello_2',
-    index: 1,
-    completed: false,
-  },
-];
+  document.body.innerHTML = dom
 
-document.body.innerHTML = `
-<div id="tasks" class="flex-center">
-      <div class="task-list flex-center">
-        <div class="container flex-center">
-          <span class="title">Today's To Do</span>
-          <span class="reload"><i class="fas fa-sync-alt"></i></span>
-        </div>
-        <div class="container flex-center">
-          <form id="add-task" class="flex-center">
-            <input
-              id="add-task-input"
-              type="text"
-              placeholder="Add to your list"
-            />
-            <button type="submit" aria-label="Add new task">
-              <i class="fa fa-plus-circle"></i>
-            </button>
-          </form>
-        </div>
-        <ul class="task-list-container">
-          
-        </ul>
-        <button class="container btn clear-task" type="button">
-          Clear all completed
-        </button>
-      </div>
-    </div>
-`;
 describe('Add tasks', () => {
   test('testing add', () => {
-    const div = document.querySelector('.task-list-container');
-    let li;
-    addTask(task1);
-    task1.forEach((e) => {
-      li = document.createElement('li');
-      li.innerHTML = e.description;
-      div.appendChild(li);
-    });
-    const word = document.querySelectorAll('.task-list-container');
+    document.querySelector('#add-task-input').value = task1[0].description
 
-    expect(word).toHaveLength(1);
-  });
+    const addTaskForm = document.querySelector('#add-task');
+    let data = storageData
+    data = addTask();
+    const dataLengthBefore = data.length
+    addTaskForm.click()
+    const dataLengthAfter = data.length
 
-  test('testing add', () => {
-    const div = document.querySelector('.task-list-container');
-    let li;
-    addTask(task2);
-    task2.forEach((e) => {
-      li = document.createElement('li');
-      li.innerHTML = e.description;
-      div.appendChild(li);
-    });
-    const word = document.querySelectorAll('.task-list-container');
-
-    expect(word).toHaveLength(1);
+    expect(dataLengthAfter).toBe(dataLengthBefore+1);
   });
 });
