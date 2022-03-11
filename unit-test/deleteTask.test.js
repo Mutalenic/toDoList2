@@ -1,27 +1,36 @@
 /**
  * @jest-environment jsdom
  */
- import {deleteTask} from './deleteTask.js';
+ import {deleteOne} from './deleteOne.js';
  import {dom} from './dom.js';
- import { addTask } from './addTask.js';
  import {storageData} from './storage.js'
 
 
 describe('Add tasks', () => {
   test('testing add', () => {
     document.body.innerHTML = dom
-    const task = document.querySelectorAll('.task');
-    let data = storageData
-    const getTask =  data.map((task) => task);
-    task[1].classList.add('focus');
+    const closeBtn = document.querySelectorAll('.closeBtn');
+    const taskId = document.querySelectorAll('.checkbox')[1].id;
 
+    let data = storageData
     const dataLengthBefore = data.length
 
-    data = deleteTask();
-    const clearTask = document.querySelector('.clear-task');
-    clearTask.click()
 
+    data = deleteOne(closeBtn[1], taskId);
+    const task = document.querySelectorAll('.task');
+
+
+    
+    closeBtn[1].click()
     const dataLengthAfter = data.length
+
+
+
+    // data = deleteTask();
+
+    // closeBtn[1].click()
+
+    // const dataLengthAfter = data.length
 
 
     expect(dataLengthAfter).toBe(dataLengthBefore-1);
