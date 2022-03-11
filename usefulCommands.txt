@@ -7,13 +7,13 @@
   ## Stylelint
 
   Auto error fix run: 
-    npx stylelint "**/*.{css,scss}" --fix
+npx stylelint "**/*.{css,scss}" --fix
 
 
   ## EsLint
 
   Auto error fix run: 
-    npx eslint . --fix
+npx eslint . --fix
 ____________________________________________________
 
 # GIT COMMANDS
