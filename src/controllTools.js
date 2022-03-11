@@ -1,9 +1,6 @@
 import { checkbox, editTask } from './index.js';
 import { getTask } from './data.js';
 
-
-
-
 export const deleteTask = () => {
   const clearTask = document.querySelector('.clear-task');
   clearTask.addEventListener('click', () => {

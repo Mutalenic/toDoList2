@@ -1,4 +1,4 @@
-import {storageData} from './storage.js'
+import { storageData } from './storage.js';
 
 export const addTask = () => {
   class Task {
@@ -19,4 +19,3 @@ export const addTask = () => {
   });
   return data;
 };
-
