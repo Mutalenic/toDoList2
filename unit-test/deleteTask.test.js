@@ -1,22 +1,20 @@
-/**
- * @jest-environment jsdom
- */
-import { deleteOne } from './deleteOne.js';
+import { deleteTask } from './deleteTask.js';
 import { dom } from './dom.js';
 import { storageData } from './storage.js';
 
 describe('Add tasks', () => {
-  test('testing add', () => {
+  test('Test delete completed tasks function', () => {
     document.body.innerHTML = dom;
-    const closeBtn = document.querySelectorAll('.closeBtn');
-    const taskId = document.querySelectorAll('.checkbox')[1].id;
 
     let data = storageData;
+    data[0].completed = true;
+    data[2].completed = true;
+
     const dataLengthBefore = data.length;
 
-    data = deleteOne(closeBtn[1], taskId);
+    data = deleteTask(storageData);
     const dataLengthAfter = data.length;
 
-    expect(dataLengthAfter).toBe(dataLengthBefore - 1);
+    expect(dataLengthAfter).toBe(dataLengthBefore - 2);
   });
 });
